@@ -99,7 +99,7 @@
         $('#calculate').click(function(){
             result = (sellPrice * sellAmount) - (buyPrice * buyAmount);
             $('.result-placeholder').removeClass('d-none');+
-            $('#result').html(result);
+            $('#result').html(result.toFixed(2));
         });
     </script>
 </html>
