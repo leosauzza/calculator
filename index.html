@@ -1,0 +1,105 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    </head>
+    <body>
+        <div class="container main-container">
+            <div class="row">
+                <div class="col-6">
+                    <h4>Calcula tus ganancias mostro</h4>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="buyAmount">Buy Amount</label>
+                                <input type="text" class="form-control" name="buyAmount" id="buyAmount" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="buyPrice">Buy Price</label>
+                                <input type="text" class="form-control" name="buyPrice" id="buyPrice" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="sellAmount">Sell Amount</label>
+                                <input type="text" class="form-control" name="sellAmount" id="sellAmount" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="sellPrice">Sell Price</label>
+                                <input type="text" class="form-control" name="sellPrice" id="sellPrice" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-primary" id="calculate">Calculate</button>
+                            </div>
+                            <div class="form-group d-none result-placeholder">
+                                Sacaste  $<span id="result"> </span>, bien ahi wacho
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+        
+    <script>
+        $(document).ready(function(){
+            
+        });
+        var buyAmount = 0;
+        var buyPrice = 0;
+        var sellAmount = 0;
+        var sellPrice = 0;
+        var result = 0;
+        $('#buyAmount').change(function(value){
+            var newValue = value.currentTarget.value;
+            if(isNaN(newValue)){
+                value.currentTarget.value = "";
+                buyAmount = 0;
+                alert('poné un número imbecil!');
+            }
+            else{
+                buyAmount = newValue;
+            }
+        });
+
+        $('#buyPrice').change(function(value){
+            var newValue = value.currentTarget.value;
+            if(isNaN(newValue)){
+                value.currentTarget.value = "";
+                buyPrice = 0;
+                alert('poné un número imbecil!');
+            }
+            else{
+                buyPrice = newValue;
+            }
+        });
+
+        $('#sellAmount').change(function(value){
+            var newValue = value.currentTarget.value;
+            if(isNaN(newValue)){
+                value.currentTarget.value = "";
+                sellAmount = 0;
+                alert('poné un número imbecil!');
+            }
+            else{
+                sellAmount = newValue;
+            }
+        });
+
+        $('#sellPrice').change(function(value){
+            var newValue = value.currentTarget.value;
+            if(isNaN(newValue)){
+                value.currentTarget.value = "";
+                sellPrice = 0;
+                alert('poné un número imbecil!');
+            }
+            else{
+                sellPrice = newValue;
+            }
+        });
+
+        $('#calculate').click(function(){
+            result = (sellPrice * sellAmount) - (buyPrice * buyAmount);
+            $('.result-placeholder').removeClass('d-none');+
+            $('#result').html(result);
+        });
+    </script>
+</html>
