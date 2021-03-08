@@ -38,15 +38,17 @@
 				<div class="col-6">
 					<h4>Pasa tus valores a USD</h4>
 					<div class="card">
-						<div class="form-group">
-							<label for="coinQuantity">Quantity</label>
-							<input type="text" class="form-control coinPrice" name="coinQuantity" id="coinQuantity" placeholder="">
+						<div class="card-body>
+							<div class="form-group">
+								<label for="coinQuantity">Quantity</label>
+								<input type="text" class="form-control coinPrice" name="coinQuantity" id="coinQuantity" placeholder="">
+							</div>
+							<div class="form-group">
+								<label for="coinPrice">Price</label>
+								<input type="text" class="form-control coinPrice" name="coinPrice" id="coinPrice" placeholder="">
+							</div>
+							<div id="coinTotal">Eso vale $<span></span> USD maestro</div>
 						</div>
-						<div class="form-group">
-							<label for="coinPrice">Price</label>
-							<input type="text" class="form-control coinPrice" name="coinPrice" id="coinPrice" placeholder="">
-						</div>
-						<div id="coinTotal">Eso vale $<span></span> USD maestro</div>
 					</div>
 				</div>
             </div>
@@ -133,7 +135,7 @@
 			var newValue = value.currentTarget.value;
             if(!isNaN(newValue)){
 				coinTotal = coinQuantity * coinPrice;
-				$('#coinTotal span').html(parseFloat(coinTotal).toFixed(2))
+				$('#coinTotal span').html(parseFloat(coinTotal).toFixed(2));
             }else{
 				coinTotal = 0;
 			}
