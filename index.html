@@ -30,7 +30,7 @@
                                 <button class="btn btn-primary" id="calculate">Calculate</button>
                             </div>
                             <div class="form-group d-none result-placeholder">
-                                Sacaste  $<span id="result"> </span>, bien ahi wacho
+                                Sacaste  $<span id="result"> </span>, ganaste un <span id="resultpercent"></span>, bien ahi wacho
                             </div>
                         </div>
                     </div>
@@ -48,6 +48,7 @@
         var sellAmount = 0;
         var sellPrice = 0;
         var result = 0;
+        var resultpercent = 0;
         $('#buyAmount').change(function(value){
             var newValue = value.currentTarget.value;
             if(isNaN(newValue)){
@@ -100,6 +101,8 @@
             result = (sellPrice * sellAmount) - (buyPrice * buyAmount);
             $('.result-placeholder').removeClass('d-none');+
             $('#result').html(parseFloat(result).toFixed(2));
+            resultpercent = result/(buyPrice * buyAmount);
+            $('#resultpercent').html("%"+parseFloat(resultpercent).toFixed(2));
         });
     </script>
 </html>
