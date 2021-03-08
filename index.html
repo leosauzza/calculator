@@ -102,7 +102,7 @@
             $('.result-placeholder').removeClass('d-none');+
             $('#result').html(parseFloat(result).toFixed(2));
             resultpercent = result/(buyPrice * buyAmount);
-            $('#resultpercent').html("%"+parseFloat(resultpercent*100).toFixed(2));
+            $('#resultpercent').html(parseFloat(resultpercent*100).toFixed(2)+"%");
         });
     </script>
 </html>
