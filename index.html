@@ -51,6 +51,23 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-6 offset-6">
+                    <h4>APR/APY detallado</h4>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="apr">APR / APY</label>
+                                <input type="text" class="form-control aprTotal" name="aprTotal" id="aprTotal" placeholder="">
+                            </div>
+                            <div class="form-group aprDay">
+                                APR por dia: <span></span>%
+                            </div>
+                            <div class="form-group aprHour">
+                                APR por hora: <span></span>%
+                            </div>
+                        </div>
+                    </div>
+                </div>
 			</div>
         </div>
     </body>
@@ -69,6 +86,10 @@
 		var coinQuantity = 0;
 		var coinPrice = 0;
 		var coinTota = 0;
+
+        var aprTotal = 0;
+        var aprDay = 0;
+        var aprHour = 0;
 		
         $('#buyAmount').change(function(value){
             var newValue = value.currentTarget.value;
@@ -151,6 +172,23 @@
 				coinTotal = 0;
 			}
 		});
+
+        $('#aprTotal').change(function(value){
+            var newValue = value.currentTarget.value;
+            if(isNaN(newValue)){
+                value.currentTarget.value = "";
+                aprTotal = 0;
+                alert('poné un número imbecil!');
+            }
+            else{
+                aprTotal = newValue;
+                aprDay = aprTotal/365;
+                aprHour = aprDay/24;
+
+                $('.aprDay span').html(parseFloat(aprDay).toFixed(2));;
+                $('.aprHour span').html(parseFloat(aprHour).toFixed(2))
+            }
+        });
 
         $('#calculate').click(function(){
             result = (sellPrice * sellAmount) - (buyPrice * buyAmount);
